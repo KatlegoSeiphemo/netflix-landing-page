@@ -3,207 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix South Africa - Watch TV Shows Online, Watch Movies Online</title>
-    
-    <!-- Favicon -->
+    <title>Netflix South Africa - Watch TV Shows Online</title>
+
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
-    
-    <!-- External CSS -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ===== HEADER SECTION ===== -->
-    <div class="header"> 
-        <nav>
-            <img src="./images/logo.png" alt="logo" class="logo">
-            <div>
-                
-                <button class="signin-btn">Sign In</button>
-            </div>
-        </nav>
 
-        <div class="header_content">
-            <h1>Unlimited movies, TV shows and more</h1>
-            <h3>Starts at R 59. Cancel anytime.</h3>
-            <p>Ready to watch? Enter your email to create or restart your membership.</p>
-            <form action="#" class="email_signup">
+<!-- ===== HEADER SECTION ===== -->
+<div class="header">
+    <nav>
+        <img src="./images/logo.png" class="logo">
+        <button class="signin-btn">Sign In</button>
+    </nav>
+
+    <div class="header_content">
+        <h1>Unlimited movies, TV shows and more</h1>
+        <h3>Starts at R 59. Cancel anytime.</h3>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+
+        <form class="email_signup">
+            <input type="email" placeholder="Email Address" required>
+            <button type="submit">Get Started</button>
+        </form>
+    </div>
+</div>
+
+<!-- ===== FEATURES SECTION ===== -->
+<div class="features">
+    <div class="row">
+        <div class="text_col">
+            <h2>Enjoy on your TV</h2>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        </div>
+        <div class="img_col">
+            <img src="./images/feature-1.png">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="img_col">
+            <img src="./images/feature-2.png">
+        </div>
+        <div class="text_col">
+            <h2>Download your shows to watch offline</h2>
+            <p>Save your favourites easily and always have something to watch.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== VIDEO SECTION ===== -->
+<div class="video-section">
+    <div class="video-container">
+        <h2>New on Netflix</h2>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/yuBO0wfQKR0"
+                allowfullscreen></iframe>
+        </div>
+        <p class="video-description">
+            Watch the official trailer for Tyler Perry's Joe's College Road Trip.
+        </p>
+    </div>
+</div>
+
+<!-- ===== SEMANTIC FAQ SECTION ===== -->
+<div class="faq">
+    <div class="faq-container">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="accordion">
+
+            <details class="faq-item">
+                <summary>What is Netflix?</summary>
+                <div class="content">
+                    <p>Netflix is a streaming service offering award-winning TV shows, movies, anime, documentaries and more.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How much does Netflix cost?</summary>
+                <div class="content">
+                    <p>Plans range from R 59 to R 229/month.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>Where can I watch?</summary>
+                <div class="content">
+                    <p>Watch anywhere on smart TVs, phones, tablets, laptops and more.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>How do I cancel?</summary>
+                <div class="content">
+                    <p>You can cancel your account anytime online with no extra fees.</p>
+                </div>
+            </details>
+
+        </div>
+
+        <div class="faq-email">
+            <small>Ready to watch? Enter your email to create or restart your membership.</small>
+            <form class="email_signup">
                 <input type="email" placeholder="Email Address" required>
                 <button type="submit">Get Started</button>
             </form>
         </div>
     </div>
+</div>
 
-    <!-- ===== FEATURES SECTION ===== -->
-    <div class="features">
-        <div class="row">
-            <div class="text_col">
-                <h2>Enjoy on your TV</h2>
-                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-            </div>
-            <div class="img_col">
-                <img src="./images/feature-1.png" alt="TV screen showing Netflix">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="img_col">
-                <img src="./images/feature-2.png" alt="Mobile phone with Netflix">
-            </div>
-            <div class="text_col">
-                <h2>Download your shows to watch offline</h2>
-                <p>Save your favourites easily and always have something to watch.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="text_col">
-                <h2>Watch everywhere</h2>
-                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
-            </div>
-            <div class="img_col">
-                <img src="./images/feature-3.png" alt="Multiple devices streaming Netflix">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="img_col">
-                <img src="./images/feature-4.png" alt="Kids profile on Netflix">
-            </div>
-            <div class="text_col">
-                <h2>Create profiles for kids</h2>
-                <p>Send children on adventures with their favourite characters in a space made just for them—free with your membership.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== YOUTUBE VIDEO SECTION ===== -->
-    <div class="video-section">
-        <div class="video-container">
-            <h2>New on Netflix</h2>
-            <div class="video-wrapper">
-                <!-- Embedded YouTube Video -->
-                <iframe 
-                    src="https://www.youtube.com/embed/yuBO0wfQKR0" 
-                    title="Tyler Perry's Joe's College Road Trip | Official Red Band Trailer | Netflix" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <p class="video-description">Watch the official trailer for Tyler Perry's Joe's College Road Trip, coming soon to Netflix.</p>
-        </div>
-    </div>
-
-    <!-- ===== PURE CSS FAQ SECTION ===== -->
-    <div class="faq">
-        <div class="faq-container">
-            <h2>Frequently Asked Questions</h2>
-            
-            <div class="accordion">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq1" class="faq-input">
-                    <label for="faq1" class="faq-label">What is Netflix?</label>
-                    <div class="content">
-                        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
-                        <p>You can watch as much as you want, whenever you want, for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq2" class="faq-input">
-                    <label for="faq2" class="faq-label">How much does Netflix cost?</label>
-                    <div class="content">
-                        <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from R 59 to R 229/month..</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq3" class="faq-input">
-                    <label for="faq3" class="faq-label">Where can I watch?</label>
-                    <div class="content">
-                        <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq4" class="faq-input">
-                    <label for="faq4" class="faq-label">How do I cancel?</label>
-                    <div class="content">
-                        <p>Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq5" class="faq-input">
-                    <label for="faq5" class="faq-label">What can I watch on Netflix?</label>
-                    <div class="content">
-                        <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <input type="radio" name="faq" id="faq6" class="faq-input">
-                    <label for="faq6" class="faq-label">Is Netflix good for kids?</label>
-                    <div class="content">
-                        <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.</p>
-                        <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="faq-email">
-                <small>Ready to watch? Enter your email to create or restart your membership.</small>
-                <form action="#" class="email_signup">
-                    <input type="email" placeholder="Email Address" required>
-                    <button type="submit">Get Started</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===== FOOTER SECTION ===== -->
-    <div class="footer">
-        <h2>Questions? Call 000-800-919-1694</h2>
-
-        <div class="row">
-            <div class="col">
-                <a href="#">FAQ</a>
-                <a href="#">Investor Relations</a>
-                <a href="#">Privacy</a>
-                <a href="#">Speed Test</a>
-            </div>
-
-            <div class="col">
-                <a href="#">Help Center</a>
-                <a href="#">Jobs</a>
-                <a href="#">Cookie Preferences</a>
-                <a href="#">Legal Notices</a>
-            </div>
-
-            <div class="col">
-                <a href="#">Account</a>
-                <a href="#">Ways to Watch</a>
-                <a href="#">Corporate Information</a>
-                <a href="#">Only on Netflix</a>
-            </div>
-
-            <div class="col">
-                <a href="#">Media Center</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">Contact Us</a>
-            </div>
-        </div>
-
-        <button class="language-btn">English <img src="./images/down-icon.png" alt=""></button>
-        <p class="copyright_text">Netflix South Africa</p>
-    </div>
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    <h2>Questions? Call 000-800-919-1694</h2>
+    <p class="copyright_text">Netflix South Africa</p>
+</div>
 
 </body>
 </html>
