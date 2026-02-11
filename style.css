@@ -663,10 +663,8 @@ details[open] .faq-content {
 
 /* OPTION 1: Extra dark (for maximum text readability) */
 .header-extra-dark::after {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
 }
 
-/* OPTION 2: Medium dark (balanced) */
-.header-medium-dark::after {
-    background: rgba(0, 0, 0, 0.3);
+
 }
