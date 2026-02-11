@@ -16,15 +16,17 @@ body {
 .header {
     width: 100%;
     height: 100vh;
-    /* DARKER BACKGROUND - More dimmed */
+
+    /* LIGHTER BACKGROUND */
     background: 
         linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.9) 0%,      
-            rgba(0, 0, 0, 0.7) 40%,     
-            rgba(0, 0, 0, 1.0) 100%     
+            rgba(0, 0, 0, 0.6) 0%,      
+            rgba(0, 0, 0, 0.4) 40%,     
+            rgba(0, 0, 0, 0.7) 100%     
         ),
         url(./images/background.jpg);
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,7 +34,7 @@ body {
     position: relative;
 }
 
-/* Additional dark overlay for better text readability */
+/* Softer overlay */
 .header::after {
     content: '';
     position: absolute;
@@ -40,7 +42,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* 40% black overlay */
+    background: rgba(0, 0, 0, 0.2); /* reduced from 0.4 */
     z-index: 1;
 }
 
@@ -50,7 +52,7 @@ nav {
     justify-content: space-between;
     padding: 10px 0;
     position: relative;
-    z-index: 2; /* Keep nav above overlay */
+    z-index: 2;
 }
 
 .logo {
@@ -102,8 +104,7 @@ nav button:hover {
     margin-top: 100px;
     width: 90%;
     max-width: 800px;
-    position: relative;
-    z-index: 2; /* Keep content above overlay */
+    z-index: 2;
 }
 
 .header_content h1 {
@@ -186,11 +187,7 @@ nav button:hover {
     border-bottom: none;
 }
 
-.text_col {
-    flex-basis: 50%;
-    margin-bottom: 20px;
-}
-
+.text_col,
 .img_col {
     flex-basis: 50%;
     margin-bottom: 20px;
@@ -236,7 +233,7 @@ nav button:hover {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 4px;
@@ -246,20 +243,12 @@ nav button:hover {
 
 .video-wrapper iframe {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     border: none;
 }
 
-.video-description {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-/* ===== SEMANTIC FAQ SECTION WITH <details>/<summary> ===== */
+/* ===== FAQ SECTION ===== */
 .faq {
     padding: 10px 12%;
     text-align: center;
@@ -267,44 +256,19 @@ nav button:hover {
     background: #000;
 }
 
-.faq h2 {
-    font-weight: 500;
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-
-.faq-container {
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-/* Style the <details> element */
 details {
     margin-bottom: 8px;
     width: 100%;
     background: #303030;
     color: #fff;
-    border-radius: 0;
-    overflow: hidden;
 }
 
-/* Style the <summary> element */
 summary {
-    display: flex;
-    align-items: center;
     padding: 20px;
     font-size: 18px;
-    font-weight: 500;
-    background-color: #303030;
     cursor: pointer;
     position: relative;
-    list-style: none; /* Remove default arrow */
-    transition: background-color 0.3s;
-}
-
-/* Remove default marker and add custom one */
-summary::-webkit-details-marker {
-    display: none;
+    list-style: none;
 }
 
 summary::after {
@@ -312,85 +276,18 @@ summary::after {
     font-size: 34px;
     position: absolute;
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.5s;
 }
 
-/* Hover effect */
-summary:hover {
-    background-color: #444;
-}
-
-/* When details is open */
 details[open] summary::after {
     content: "×";
-    transform: translateY(-50%) rotate(0deg);
 }
 
-/* FAQ content styling */
-.faq-content {
-    padding: 0 20px;
-    text-align: left;
-    border-top: 1px solid #000;
-    background: #303030;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-}
-
-/* When details is open, show content */
-details[open] .faq-content {
-    max-height: 800px;
-    padding: 24px 20px;
-}
-
-/* Style paragraphs inside FAQ */
-.faq-content p {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.4;
-    margin-bottom: 15px;
-}
-
-.faq-content p:last-child {
-    margin-bottom: 0;
-}
-
-.faq-email {
-    margin-top: 50px;
-}
-
-.faq-email small {
-    display: block;
-    font-size: 13px;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.faq .email_signup {
-    max-width: 600px;
-    margin: 20px auto 60px;
-}
-
-/* ===== FOOTER SECTION ===== */
+/* ===== FOOTER ===== */
 .footer {
     padding: 50px 15% 10px;
     border-top: 6px solid #333;
     color: #777;
     background: #000;
-}
-
-.footer h2 {
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 30px;
-}
-
-.footer .col {
-    flex-basis: 25%;
-    flex-grow: 1;
-    margin-bottom: 20px;
 }
 
 .footer .col a {
@@ -399,272 +296,8 @@ details[open] .faq-content {
     color: #777;
     font-size: 14px;
     margin-bottom: 10px;
-    transition: color 0.3s;
 }
 
 .footer .col a:hover {
     color: #fff;
-    text-decoration: underline;
-}
-
-.footer .row {
-    align-items: flex-start;
-    margin: 10px 0;
-    padding: 0;
-    border: none;
-}
-
-.footer .language-btn {
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 3px;
-}
-
-.copyright_text {
-    font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-/* ===== HEADER LANGUAGE BUTTON ===== */
-.header .language-btn {
-    display: inline-flex;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid #fff;
-    padding: 7px 10px;
-    margin-left: 10px;
-}
-
-.header .language-btn img {
-    width: 10px;
-    margin-left: 10px;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media screen and (max-width: 768px) {
-    .logo {
-        width: 120px;
-    }
-    
-    nav button {
-        padding: 5px 10px;
-    }
-    
-    .language-btn {
-        padding: 4px 8px;
-    }
-    
-    .header_content h1 {
-        font-size: 40px;
-        line-height: 50px;
-    }
-    
-    .header_content h3 {
-        font-size: 20px;
-    }
-    
-    .header_content p {
-        font-size: 18px;
-    }
-    
-    .features h2,
-    .video-container h2,
-    .faq h2 {
-        font-size: 35px;
-    }
-    
-    .features p {
-        font-size: 20px;
-    }
-    
-    .video-description {
-        font-size: 18px;
-    }
-    
-    /* FAQ Mobile Styles */
-    summary {
-        font-size: 16px;
-        padding: 15px;
-    }
-    
-    summary::after {
-        font-size: 28px;
-        right: 15px;
-    }
-    
-    .faq-content p {
-        font-size: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .logo {
-        width: 100px;
-    }
-    
-    nav button {
-        padding: 5px 10px;
-        font-size: 10px;
-    }
-    
-    .header_content {
-        position: unset;
-        transform: none;
-        padding-top: 150px;
-        margin-top: 0;
-    }
-    
-    .header_content h1 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    
-    .header_content h3 {
-        font-size: 18px;
-    }
-    
-    .header_content p {
-        font-size: 16px;
-    }
-    
-    .email_signup {
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
-        gap: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .email_signup input {
-        width: 100%;
-        margin-left: 0;
-        padding: 15px;
-        border-radius: 4px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: 1px solid #333;
-    }
-    
-    .email_signup button {
-        width: 100%;
-        padding: 12px;
-        font-size: 18px;
-    }
-    
-    .text_col, .img_col {
-        flex-basis: 100%;
-        text-align: center;
-    }
-    
-    .features h2 {
-        font-size: 30px;
-    }
-    
-    .features p {
-        font-size: 18px;
-    }
-    
-    .row:nth-child(2), .row:nth-child(4) {
-        flex-direction: column-reverse;
-    }
-    
-    .features .row {
-        padding: 30px 0;
-    }
-    
-    .video-container h2,
-    .faq h2 {
-        font-size: 25px;
-    }
-    
-    .video-description {
-        font-size: 16px;
-    }
-    
-    /* FAQ Mobile Styles */
-    summary {
-        padding: 12px;
-        font-size: 14px;
-    }
-    
-    summary::after {
-        font-size: 22px;
-        right: 15px;
-    }
-    
-    .faq-content p {
-        font-size: 1rem;
-    }
-    
-    details[open] .faq-content {
-        padding: 16px 20px;
-    }
-    
-    .footer .col {
-        flex-basis: 50%;
-    }
-    
-    .footer .row {
-        flex-wrap: wrap;
-    }
-    
-    /* Make background even darker on mobile for better text readability */
-    .header::after {
-        background: rgba(0, 0, 0, 0.6);
-    }
-    
-    .video-section {
-        padding: 10px 5%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header_content h1 {
-        font-size: 26px;
-        line-height: 35px;
-    }
-    
-    .header_content h3 {
-        font-size: 16px;
-    }
-    
-    .header_content p {
-        font-size: 14px;
-    }
-    
-    .features h2,
-    .video-container h2,
-    .faq h2 {
-        font-size: 22px;
-    }
-    
-    .features p {
-        font-size: 16px;
-    }
-    
-    /* FAQ Mobile Styles */
-    summary {
-        font-size: 13px;
-        padding: 10px 40px 10px 15px;
-    }
-    
-    summary::after {
-        font-size: 20px;
-    }
-    
-    .footer .col {
-        flex-basis: 100%;
-    }
-}
-
-/* ===== DARKNESS ADJUSTMENT OPTIONS ===== */
-/* You can adjust these values to control how dark the background is */
-
-/* OPTION 1: Extra dark (for maximum text readability) */
-.header-extra-dark::after {
-    background: rgba(0, 0, 0, 0.4);
-}
-
-
 }
