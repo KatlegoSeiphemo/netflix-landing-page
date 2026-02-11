@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix South Africa - Watch TV Shows Online, Watch Movies Online</title>
+    <title>Netflix</title>
     
     <!-- Favicon -->
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
@@ -61,10 +61,11 @@
             padding: 0 20px;
         }
         
-        /* FAQ Section */
+        /* PURE CSS FAQ SECTION - NO JAVASCRIPT */
         .faq {
             padding: 70px 20px;
             background: #000;
+            border-top: 8px solid #222;
         }
         
         .faq-container {
@@ -80,40 +81,44 @@
             color: #fff;
         }
         
-        /* FAQ Item Styling */
-        .faq-item {
-            margin-bottom: 8px;
-            width: 100%;
+        /* Hide radio buttons */
+        .faq-input {
+            display: none;
         }
         
-        .faq-question {
+        /* FAQ Question Styling */
+        .faq-label {
+            display: block;
             width: 100%;
             background: #303030;
-            border: 0;
             color: #fff;
             font-size: 1.5rem;
             font-weight: 400;
             text-align: left;
             padding: 24px;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-bottom: 1px;
             position: relative;
             transition: background-color 0.2s ease;
         }
         
-        .faq-question:hover {
+        .faq-label:hover {
             background: #444;
         }
         
-        .faq-icon {
+        /* Plus/Minus icon */
+        .faq-label::after {
+            content: '+';
             font-size: 2.5rem;
-            color: #fff;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             transition: transform 0.3s ease;
         }
         
-        .faq-answer {
+        /* FAQ Answer Styling */
+        .faq-content {
             background: #303030;
             color: #fff;
             font-size: 1.5rem;
@@ -123,16 +128,19 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
-            border-top: 1px solid #000;
         }
         
-        .faq-item.active .faq-answer {
+        /* When radio is checked, show answer */
+        .faq-input:checked + .faq-label + .faq-content {
             max-height: 800px;
             padding: 24px;
+            margin-bottom: 8px;
         }
         
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
+        /* Change icon when checked */
+        .faq-input:checked + .faq-label::after {
+            content: '×';
+            transform: translateY(-50%) rotate(0deg);
         }
         
         /* Email form styling */
@@ -146,6 +154,42 @@
             color: #fff;
             font-size: 1.2rem;
             margin-bottom: 20px;
+        }
+        
+        /* Form styling */
+        .email_signup {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .email_signup input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            min-width: 300px;
+        }
+        
+        .email_signup button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .email_signup button:hover {
+            background: #f40612;
         }
         
         /* Header H1 styling */
@@ -166,17 +210,28 @@
                 border-radius: 5px;
             }
             
-            .faq-question {
+            .faq-label {
                 font-size: 1.2rem;
                 padding: 18px;
             }
             
-            .faq-answer {
+            .faq-content {
                 font-size: 1.2rem;
             }
             
-            .faq-icon {
+            .faq-label::after {
                 font-size: 2rem;
+            }
+            
+            .email_signup {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .email_signup input {
+                min-width: auto;
+                width: 100%;
+                max-width: 400px;
             }
         }
         
@@ -186,13 +241,23 @@
                 font-size: 1.75rem;
             }
             
-            .faq-question {
+            .faq-label {
                 font-size: 1.1rem;
-                padding: 16px;
+                padding: 16px 45px 16px 16px;
+            }
+            
+            .faq-label::after {
+                right: 15px;
+                font-size: 1.8rem;
             }
             
             .video-description {
                 font-size: 1.1rem;
+            }
+            
+            .email_signup button {
+                font-size: 1.2rem;
+                padding: 12px 24px;
             }
         }
     </style>
@@ -239,78 +304,64 @@
         </div>
     </div>
 
-    <!-- FAQ Section -->
+    <!-- PURE HTML/CSS FAQ SECTION - NO JAVASCRIPT -->
     <div class="faq">
         <div class="faq-container">
             <h2>Frequently Asked Questions</h2>
             
-            <div class="faq-list">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is Netflix?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
-                        <p>You can watch as much as you want, whenever you want, for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
-                    </div>
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq1" class="faq-input">
+                <label for="faq1" class="faq-label">What is Netflix?</label>
+                <div class="faq-content">
+                    <p>Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
+                    <p>You can watch as much as you want, whenever you want, for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!</p>
                 </div>
-                
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How much does Netflix cost?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.</p>
-                    </div>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq2" class="faq-input">
+                <label for="faq2" class="faq-label">How much does Netflix cost?</label>
+                <div class="faq-content">
+                    <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts.</p>
                 </div>
-                
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Where can I watch?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
-                    </div>
+            </div>
+            
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq3" class="faq-input">
+                <label for="faq3" class="faq-label">Where can I watch?</label>
+                <div class="faq-content">
+                    <p>Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.</p>
                 </div>
-                
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do I cancel?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
-                    </div>
+            </div>
+            
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq4" class="faq-input">
+                <label for="faq4" class="faq-label">How do I cancel?</label>
+                <div class="faq-content">
+                    <p>Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.</p>
                 </div>
-                
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What can I watch on Netflix?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</p>
-                    </div>
+            </div>
+            
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq5" class="faq-input">
+                <label for="faq5" class="faq-label">What can I watch on Netflix?</label>
+                <div class="faq-content">
+                    <p>Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</p>
                 </div>
-                
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is Netflix good for kids?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.</p>
-                        <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.</p>
-                    </div>
+            </div>
+            
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+                <input type="radio" name="faq" id="faq6" class="faq-input">
+                <label for="faq6" class="faq-label">Is Netflix good for kids?</label>
+                <div class="faq-content">
+                    <p>The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space.</p>
+                    <p>Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see.</p>
                 </div>
             </div>
             
@@ -326,7 +377,7 @@
 
     <!-- Footer Section -->
     <div class="footer">
-        <h2>Questions? Call 000-800-919-1694</h2>
+        <h2>Questions? Call 0800 100 046</h2>
 
         <div class="row">
             <div class="col">
@@ -361,32 +412,5 @@
         <p class="copyright_text">Netflix South Africa</p>
     </div>
 
-    <script>
-        // FAQ Toggle JavaScript
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const faqItem = button.parentElement;
-                
-                // Close all other FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                    }
-                });
-                
-                // Toggle current FAQ item
-                faqItem.classList.toggle('active');
-            });
-        });
-        
-        // Close FAQ when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!event.target.closest('.faq-item')) {
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
