@@ -20,9 +20,9 @@ body {
     background: 
         linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.9) 0%,      /* 90% opaque at top */
-            rgba(0, 0, 0, 0.7) 50%,     /* 70% opaque in middle */
-            rgba(0, 0, 0, 0.9) 100%     /* 90% opaque at bottom */
+            rgba(0, 0, 0, 0.9) 0%,      
+            rgba(0, 0, 0, 0.7) 40%,     
+            rgba(0, 0, 0, 1.0) 100%     
         ),
         url(./images/background.jpg);
     background-size: cover;
