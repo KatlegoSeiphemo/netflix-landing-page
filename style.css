@@ -1,637 +1,177 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
 }
 
-body {
-    background: #000;
-    color: #fff;
+body{
+    background:#000;
+    color:#fff;
 }
 
-/* ===== HEADER SECTION ===== */
-.header {
-    width: 100%;
-    height: 100vh;
-    /* DARKER BACKGROUND - More dimmed */
-    background: 
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.8) 0%,
-            rgba(0, 0, 0, 0.6) 50%,
-            rgba(0, 0, 0, 0.8) 100%
-        ),
-        url(./images/background.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 10px 8%;
-    position: relative;
+/* HEADER */
+.header{
+    width:100%;
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+    url(./images/background.jpg);
+    background-size:cover;
+    background-position:center;
+    padding:10px 8%;
+    position:relative;
 }
 
-/* Additional overlay for more dimming */
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: 1;
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* Make sure content stays above the overlay */
-nav, .header_content {
-    position: relative;
-    z-index: 2;
+.logo{ width:150px; }
+
+nav button{
+    background:#db0001;
+    color:#fff;
+    border:0;
+    padding:8px 18px;
+    border-radius:4px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
+nav button:hover{ background:#f40612; }
+
+.header_content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
 }
 
-.logo {
-    width: 150px;
-    cursor: pointer;
+.header_content h1{
+    font-size:50px;
+    margin-bottom:20px;
 }
 
-nav button {
-    border: 0;
-    outline: 0;
-    background-color: #db0001;
-    color: #fff;
-    padding: 7px 20px;
-    font-size: 12px;
-    border-radius: 4px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.email_signup{
+    display:flex;
+    margin-top:20px;
 }
 
-nav button:hover {
-    background-color: #f40612;
+.email_signup input{
+    flex:1;
+    padding:12px;
+    border:0;
+    outline:0;
 }
 
-.language-btn {
-    display: inline-flex;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid #fff;
-    padding: 7px 10px;
-    transition: background-color 0.3s;
+.email_signup button{
+    background:#db0001;
+    border:0;
+    color:#fff;
+    padding:12px 25px;
+    cursor:pointer;
 }
 
-.language-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.email_signup button:hover{
+    background:#f40612;
 }
 
-.language-btn img {
-    width: 10px;
-    margin-left: 10px;
+/* FEATURES */
+.features{
+    padding:50px 12%;
+    border-top:8px solid #222;
 }
 
-.header_content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    margin-top: 100px;
-    width: 90%;
-    max-width: 800px;
+.row{
+    display:flex;
+    align-items:center;
+    padding:40px 0;
+    border-bottom:8px solid #222;
 }
 
-.header_content h1 {
-    font-size: 60px;
-    line-height: 70px;
-    font-weight: 600;
-    max-width: 650px;
-    margin: 0 auto 20px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+.text_col, .img_col{ flex:1; }
+
+.img_col img{ width:90%; }
+
+/* VIDEO */
+.video-section{
+    padding:50px 12%;
+    border-top:8px solid #222;
+    border-bottom:8px solid #222;
 }
 
-.header_content h3 {
-    font-weight: 400;
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+.video-wrapper{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
 }
 
-.header_content p {
-    font-size: 20px;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+.video-wrapper iframe{
+    position:absolute;
+    width:100%;
+    height:100%;
 }
 
-.email_signup {
-    background-color: #fff;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    overflow: hidden;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+/* FAQ */
+.faq{
+    padding:50px 12%;
 }
 
-.email_signup input {
-    flex: 1;
-    border: 0;
-    outline: 0;
-    margin-left: 20px;
-    padding: 15px 0;
-    font-size: 16px;
-    background: transparent;
+.faq h2{
+    text-align:center;
+    margin-bottom:40px;
 }
 
-.email_signup button {
-    background-color: #db0001;
-    border: 0;
-    outline: 0;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 10px 30px;
-    transition: background-color 0.3s;
+.faq-item{
+    background:#303030;
+    margin-bottom:8px;
+    border-radius:4px;
 }
 
-.email_signup button:hover {
-    background-color: #f40612;
+.faq-item summary{
+    padding:20px;
+    cursor:pointer;
+    list-style:none;
+    position:relative;
 }
 
-/* ===== FEATURES SECTION ===== */
-.features {
-    padding: 50px 12%;
-    font-size: 22px;
-    border-top: 8px solid #222;
+.faq-item summary::-webkit-details-marker{
+    display:none;
 }
 
-.row {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 50px 0;
-    border-bottom: 8px solid #222;
+.faq-item summary::after{
+    content:"+";
+    position:absolute;
+    right:20px;
+    font-size:28px;
+    transition:0.3s;
 }
 
-.row:last-child {
-    border-bottom: none;
+.faq-item[open] summary::after{
+    transform:rotate(45deg);
 }
 
-.text_col {
-    flex-basis: 50%;
-    margin-bottom: 20px;
+.faq-item .content{
+    padding:0 20px 20px;
+    line-height:1.6;
 }
 
-.img_col {
-    flex-basis: 50%;
-    margin-bottom: 20px;
+/* FOOTER */
+.footer{
+    padding:40px 12%;
+    border-top:6px solid #333;
+    color:#777;
+    text-align:center;
 }
 
-.img_col img {
-    display: block;
-    width: 90%;
-    margin: auto;
-}
-
-.features h2 {
-    font-size: 50px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.features p {
-    font-size: 24px;
-}
-
-/* ===== VIDEO SECTION ===== */
-.video-section {
-    padding: 50px 12%;
-    font-size: 22px;
-    border-top: 8px solid #222;
-    border-bottom: 8px solid #222;
-    background: #000;
-}
-
-.video-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.video-container h2 {
-    font-size: 50px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: #fff;
-}
-
-.video-wrapper {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.video-description {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-/* ===== FAQ SECTION ===== */
-.faq {
-    padding: 10px 12%;
-    text-align: center;
-    font-size: 18px;
-    background: #000;
-}
-
-.faq h2 {
-    font-weight: 500;
-    font-size: 40px;
-    margin-bottom: 40px;
-}
-
-.faq-container {
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.accordion {
-    margin: 60px auto;
-    width: 100%;
-    max-width: 750px;
-}
-
-.faq-item {
-    list-style: none;
-    width: 100%;
-    padding: 5px;
-}
-
-.faq-input {
-    display: none;
-}
-
-.faq-label {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 500;
-    background-color: #303030;
-    margin-bottom: 2px;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s;
-}
-
-.faq-label:hover {
-    background-color: #444;
-}
-
-.faq-label::after {
-    content: "+";
-    font-size: 34px;
-    position: absolute;
-    right: 20px;
-    transition: transform 0.5s;
-}
-
-.content {
-    background-color: #303030;
-    text-align: left;
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s, padding 0.5s;
-}
-
-.faq-input:checked + .faq-label + .content {
-    max-height: 600px;
-    padding: 30px 20px;
-}
-
-.faq-input:checked + .faq-label::after {
-    transform: rotate(135deg);
-}
-
-.faq-email {
-    margin-top: 50px;
-}
-
-.faq-email small {
-    display: block;
-    font-size: 13px;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.faq .email_signup {
-    max-width: 600px;
-    margin: 20px auto 60px;
-}
-
-/* ===== FOOTER SECTION ===== */
-.footer {
-    padding: 50px 15% 10px;
-    border-top: 6px solid #333;
-    color: #777;
-    background: #000;
-}
-
-.footer h2 {
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 30px;
-}
-
-.footer .row {
-    align-items: flex-start;
-    margin: 10px 0;
-    padding: 0;
-    border: none;
-}
-
-.footer .col {
-    flex-basis: 25%;
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
-
-.footer .col a {
-    display: block;
-    text-decoration: none;
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 10px;
-    transition: color 0.3s;
-}
-
-.footer .col a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.footer .language-btn {
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 3px;
-}
-
-.copyright_text {
-    font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media screen and (max-width: 768px) {
-    .logo {
-        width: 120px;
-    }
-    
-    nav button {
-        padding: 5px 10px;
-    }
-    
-    .language-btn {
-        padding: 4px 8px;
-    }
-    
-    .header_content h1 {
-        font-size: 40px;
-        line-height: 50px;
-    }
-    
-    .header_content h3 {
-        font-size: 20px;
-    }
-    
-    .header_content p {
-        font-size: 18px;
-    }
-    
-    .features h2,
-    .video-container h2,
-    .faq h2 {
-        font-size: 35px;
-    }
-    
-    .features p {
-        font-size: 20px;
-    }
-    
-    .video-description {
-        font-size: 18px;
-    }
-    
-    .faq-label {
-        font-size: 16px;
-        padding: 15px;
-    }
-    
-    .faq-label::after {
-        font-size: 28px;
-        right: 15px;
-    }
-    
-    .content p {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .logo {
-        width: 100px;
-    }
-    
-    nav button {
-        padding: 5px 10px;
-        font-size: 10px;
-    }
-    
-    .header_content {
-        position: unset;
-        transform: none;
-        padding-top: 150px;
-        margin-top: 0;
-    }
-    
-    .header_content h1 {
-        font-size: 30px;
-        line-height: 40px;
-    }
-    
-    .header_content h3 {
-        font-size: 18px;
-    }
-    
-    .header_content p {
-        font-size: 16px;
-    }
-    
-    .email_signup {
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
-        gap: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .email_signup input {
-        width: 100%;
-        margin-left: 0;
-        padding: 15px;
-        border-radius: 4px;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: 1px solid #333;
-    }
-    
-    .email_signup button {
-        width: 100%;
-        padding: 12px;
-        font-size: 18px;
-    }
-    
-    .text_col, .img_col {
-        flex-basis: 100%;
-        text-align: center;
-    }
-    
-    .features h2 {
-        font-size: 30px;
-    }
-    
-    .features p {
-        font-size: 18px;
-    }
-    
-    .row:nth-child(2), .row:nth-child(4) {
-        flex-direction: column-reverse;
-    }
-    
-    .features .row {
-        padding: 30px 0;
-    }
-    
-    .video-container h2,
-    .faq h2 {
-        font-size: 25px;
-    }
-    
-    .video-description {
-        font-size: 16px;
-    }
-    
-    .faq-label {
-        padding: 12px;
-        font-size: 14px;
-        text-align: left;
-    }
-    
-    .faq-label::after {
-        font-size: 22px;
-    }
-    
-    .content p {
-        font-size: 14px;
-    }
-    
-    .footer .col {
-        flex-basis: 50%;
-    }
-    
-    .footer .row {
-        flex-wrap: wrap;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header_content h1 {
-        font-size: 26px;
-        line-height: 35px;
-    }
-    
-    .header_content h3 {
-        font-size: 16px;
-    }
-    
-    .header_content p {
-        font-size: 14px;
-    }
-    
-    /* Make background even darker on mobile for better text readability */
-    .header::before {
-        background: rgba(0, 0, 0, 0.7);
-    }
-    
-    .features h2,
-    .video-container h2,
-    .faq h2 {
-        font-size: 22px;
-    }
-    
-    .features p {
-        font-size: 16px;
-    }
-    
-    .footer .col {
-        flex-basis: 100%;
-    }
-}
-
-.header-darkest {
-    background: 
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(0, 0, 0, 0.7) 50%,
-            rgba(0, 0, 0, 0.9) 100%
-        ),
-        url(./images/background.jpg);
-}
-
-.header-darkest::before {
-    background: rgba(0, 0, 0, 0.6);
-}
-
-/* OPTION 2: Medium dark (40% dim) - Balanced */
-.header-medium {
-    background: 
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.7) 0%,
-            rgba(0, 0, 0, 0.5) 50%,
-            rgba(0, 0, 0, 0.7) 100%
-        ),
-        url(./images/background.jpg);
-}
-
-.header-medium::before {
-    background: rgba(0, 0, 0, 0.4);
+/* RESPONSIVE */
+@media(max-width:768px){
+    .row{ flex-direction:column; text-align:center; }
+    .header_content h1{ font-size:32px; }
+    .email_signup{ flex-direction:column; gap:10px; }
 }
