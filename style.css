@@ -259,7 +259,7 @@ nav button:hover {
     margin-top: 20px;
 }
 
-/* ===== FAQ SECTION ===== */
+/* ===== SEMANTIC FAQ SECTION WITH <details>/<summary> ===== */
 .faq {
     padding: 10px 12%;
     text-align: center;
@@ -278,63 +278,83 @@ nav button:hover {
     margin: 0 auto;
 }
 
-.accordion {
-    margin: 60px auto;
+/* Style the <details> element */
+details {
+    margin-bottom: 8px;
     width: 100%;
-    max-width: 750px;
+    background: #303030;
+    color: #fff;
+    border-radius: 0;
+    overflow: hidden;
 }
 
-.faq-item {
-    list-style: none;
-    width: 100%;
-    padding: 5px;
-}
-
-.faq-input {
-    display: none;
-}
-
-.faq-label {
+/* Style the <summary> element */
+summary {
     display: flex;
     align-items: center;
     padding: 20px;
     font-size: 18px;
     font-weight: 500;
     background-color: #303030;
-    margin-bottom: 2px;
     cursor: pointer;
     position: relative;
+    list-style: none; /* Remove default arrow */
     transition: background-color 0.3s;
 }
 
-.faq-label:hover {
-    background-color: #444;
+/* Remove default marker and add custom one */
+summary::-webkit-details-marker {
+    display: none;
 }
 
-.faq-label::after {
+summary::after {
     content: "+";
     font-size: 34px;
     position: absolute;
     right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     transition: transform 0.5s;
 }
 
-.content {
-    background-color: #303030;
-    text-align: left;
+/* Hover effect */
+summary:hover {
+    background-color: #444;
+}
+
+/* When details is open */
+details[open] summary::after {
+    content: "×";
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* FAQ content styling */
+.faq-content {
     padding: 0 20px;
+    text-align: left;
+    border-top: 1px solid #000;
+    background: #303030;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s, padding 0.5s;
+    transition: max-height 0.5s ease, padding 0.5s ease;
 }
 
-.faq-input:checked + .faq-label + .content {
-    max-height: 600px;
-    padding: 30px 20px;
+/* When details is open, show content */
+details[open] .faq-content {
+    max-height: 800px;
+    padding: 24px 20px;
 }
 
-.faq-input:checked + .faq-label::after {
-    transform: rotate(135deg);
+/* Style paragraphs inside FAQ */
+.faq-content p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+.faq-content p:last-child {
+    margin-bottom: 0;
 }
 
 .faq-email {
@@ -462,18 +482,19 @@ nav button:hover {
         font-size: 18px;
     }
     
-    .faq-label {
+    /* FAQ Mobile Styles */
+    summary {
         font-size: 16px;
         padding: 15px;
     }
     
-    .faq-label::after {
+    summary::after {
         font-size: 28px;
         right: 15px;
     }
     
-    .content p {
-        font-size: 16px;
+    .faq-content p {
+        font-size: 1.2rem;
     }
 }
 
@@ -561,18 +582,23 @@ nav button:hover {
         font-size: 16px;
     }
     
-    .faq-label {
+    /* FAQ Mobile Styles */
+    summary {
         padding: 12px;
         font-size: 14px;
-        text-align: left;
     }
     
-    .faq-label::after {
+    summary::after {
         font-size: 22px;
+        right: 15px;
     }
     
-    .content p {
-        font-size: 14px;
+    .faq-content p {
+        font-size: 1rem;
+    }
+    
+    details[open] .faq-content {
+        padding: 16px 20px;
     }
     
     .footer .col {
@@ -615,6 +641,16 @@ nav button:hover {
     
     .features p {
         font-size: 16px;
+    }
+    
+    /* FAQ Mobile Styles */
+    summary {
+        font-size: 13px;
+        padding: 10px 40px 10px 15px;
+    }
+    
+    summary::after {
+        font-size: 20px;
     }
     
     .footer .col {
